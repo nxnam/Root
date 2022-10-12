@@ -7,9 +7,12 @@
 //
 
 import RIBs
+import Home
+import Following
+import Personal
 
 ///@mockable
-protocol RootDependency: LoginDependency, HomeDependency {
+protocol RootDependency: HomeDependency, FollowingDependency, PersonalDependency {
     var webService: WebServicing { get }
 }
 
