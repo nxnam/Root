@@ -12,6 +12,9 @@ let package = Package(
             targets: ["Root"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/nxnam/Home", branch: "main"),
+        .package(url: "https://github.com/nxnam/Personal", branch: "main"),
+        .package(url: "https://github.com/nxnam/Following", branch: "main"),
         .package(url: "https://github.com/uber/RIBs", branch: "main")
     ],
     targets: [
@@ -19,7 +22,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Root",
-            dependencies: ["RIBs"]),
+            dependencies: ["RIBs", "Home", "Personal", "Following"]),
         .testTarget(
             name: "RootTests",
             dependencies: ["Root"]),

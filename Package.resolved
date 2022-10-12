@@ -1,6 +1,42 @@
 {
   "pins" : [
     {
+      "identity" : "dependencies",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nxnam/Dependencies",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7700c0b0ddc4df184af825be8fc7dbff225ebfee"
+      }
+    },
+    {
+      "identity" : "following",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nxnam/Following",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e7d5f09506a7c6cff7279d01b7967e31c30064bf"
+      }
+    },
+    {
+      "identity" : "home",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nxnam/Home",
+      "state" : {
+        "branch" : "main",
+        "revision" : "84c77e5737f00ceeba1286caf5e4a4eb57dc2dd8"
+      }
+    },
+    {
+      "identity" : "personal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nxnam/Personal",
+      "state" : {
+        "branch" : "main",
+        "revision" : "06fd400c66b835297215e6d48b7ca6b3458b293f"
+      }
+    },
+    {
       "identity" : "ribs",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/uber/RIBs",
@@ -16,6 +52,15 @@
       "state" : {
         "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
         "version" : "6.5.0"
+      }
+    },
+    {
+      "identity" : "utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nxnam/Utils",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e39e2a6b44edfa330c668c4bd5ccd5a8db75bf6b"
       }
     }
   ],
