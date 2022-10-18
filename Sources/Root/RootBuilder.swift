@@ -7,9 +7,10 @@
 //
 
 import RIBs
+import Main
 
 ///@mockable
-protocol RootDependency: HomeDependency, FollowingDependency, PersonalDependency {
+protocol RootDependency: MainDependency {
     // var webService: WebServicing { get }
 }
 
@@ -44,11 +45,13 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
             rootViewController: viewController
         )
         
+        let mainBuilder = MainBuilder(dependency: component.dependency)
         let interactor = RootInteractor(presenter: viewController)
+        
         return RootRouter(
             interactor: interactor,
             viewController: viewController,
-            homeBuilder: homeBuilder
+            mainBuilder: mainBuilder
         )
     }
 }

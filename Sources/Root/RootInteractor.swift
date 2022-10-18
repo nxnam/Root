@@ -11,7 +11,7 @@ import RxSwift
 
 ///@mockable
 protocol RootRouting: ViewableRouting {
-    func attachHome()
+    func attachMain()
 }
 
 ///@mockable
@@ -36,6 +36,6 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         
-        router?.attachHome()
+        router?.attachMain()
     }
 }

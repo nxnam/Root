@@ -7,12 +7,10 @@
 //
 
 import RIBs
-import Home
-import Following
-import Personal
+import Main
 
 ///@mockable
-protocol RootInteractable: Interactable, HomeListener {
+protocol RootInteractable: Interactable, MainListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -23,17 +21,18 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
-    private let homeBuilder: HomeBuildable
-    private var homeRouter: HomeRouting?
+    func attachMain() {
+    }
+    
+    private let mainBuilder: MainBuildable
+    private var mainRouter: MainRouting?
     
     init(
         interactor: RootInteractable,
         viewController: RootViewControllable,
-        homeBuilder: HomeBuildable,
-        followingBuilder: FollowingBuilder,
-        personalBuilder: PersonalBuilder
+        mainBuilder: MainBuildable
     ) {
-        self.homeBuilder = homeBuilder
+        self.mainBuilder = mainBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
