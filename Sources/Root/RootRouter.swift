@@ -23,23 +23,8 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
-    func attachHome() {
-    }
-    
-    func attachFollowing() {
-    }
-    
-    func attachPersonal() {
-    }
-    
-    
-
     private let homeBuilder: HomeBuildable
     private var homeRouter: HomeRouting?
-    private let followingBuilder: FollowingBuildable
-    private var followingRouter: FollowingRouting?
-    private let personalBuilder: PersonalBuildable
-    private var personalRouter: PersonalRouting?
     
     init(
         interactor: RootInteractable,
@@ -49,8 +34,6 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         personalBuilder: PersonalBuilder
     ) {
         self.homeBuilder = homeBuilder
-        self.followingBuilder = followingBuilder
-        self.personalBuilder = personalBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }

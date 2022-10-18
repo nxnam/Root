@@ -7,9 +7,6 @@
 //
 
 import RIBs
-import Home
-import Following
-import Personal
 
 ///@mockable
 protocol RootDependency: HomeDependency, FollowingDependency, PersonalDependency {
@@ -47,17 +44,11 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
             rootViewController: viewController
         )
         
-        let homeBuilder = HomeBuilder(dependency: component.dependency)
-        let followingBuilder = FollowingBuilder(dependency: component.dependency)
-        let personalBuilder = PersonalBuilder(dependency: component.dependency)
-        
         let interactor = RootInteractor(presenter: viewController)
         return RootRouter(
             interactor: interactor,
             viewController: viewController,
-            homeBuilder: homeBuilder,
-            followingBuilder: followingBuilder,
-            personalBuilder: personalBuilder
+            homeBuilder: homeBuilder
         )
     }
 }

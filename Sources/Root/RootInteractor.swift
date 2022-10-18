@@ -12,8 +12,6 @@ import RxSwift
 ///@mockable
 protocol RootRouting: ViewableRouting {
     func attachHome()
-    func attachFollowing()
-    func attachPersonal()
 }
 
 ///@mockable
