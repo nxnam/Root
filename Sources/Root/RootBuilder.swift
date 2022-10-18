@@ -10,7 +10,7 @@ import RIBs
 import Main
 
 ///@mockable
-protocol RootDependency: MainDependency {
+public protocol RootDependency: MainDependency {
     // var webService: WebServicing { get }
 }
 
@@ -32,13 +32,13 @@ protocol RootBuildable: Buildable {
     func build() -> LaunchRouting
 }
 
-final class RootBuilder: Builder<RootDependency>, RootBuildable {
+open class RootBuilder: Builder<RootDependency>, RootBuildable {
 
-    override init(dependency: RootDependency) {
+    public override init(dependency: RootDependency) {
         super.init(dependency: dependency)
     }
 
-    func build() -> LaunchRouting {
+    public func build() -> LaunchRouting {
         let viewController = RootViewController()
         let component = RootComponent(
             dependency: dependency,
