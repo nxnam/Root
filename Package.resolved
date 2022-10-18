@@ -15,7 +15,7 @@
       "location" : "https://github.com/nxnam/Following",
       "state" : {
         "branch" : "main",
-        "revision" : "e7d5f09506a7c6cff7279d01b7967e31c30064bf"
+        "revision" : "ff3061f698d7fb84df238e4256b0ba45bb0c425a"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/nxnam/Home",
       "state" : {
         "branch" : "main",
-        "revision" : "84c77e5737f00ceeba1286caf5e4a4eb57dc2dd8"
+        "revision" : "036ffac7076f2a2d19a68feba9637052bc85b9c1"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/nxnam/Personal",
       "state" : {
         "branch" : "main",
-        "revision" : "06fd400c66b835297215e6d48b7ca6b3458b293f"
+        "revision" : "072b8b1c5a06911530f63dca989b8e3b91b4ca9c"
       }
     },
     {

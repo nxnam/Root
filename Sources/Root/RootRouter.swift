@@ -7,9 +7,12 @@
 //
 
 import RIBs
+import Home
+import Following
+import Personal
 
 ///@mockable
-protocol RootInteractable: Interactable, LoginListener, HomeListener {
+protocol RootInteractable: Interactable, HomeListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -20,47 +23,35 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
+    func attachHome() {
+    }
+    
+    func attachFollowing() {
+    }
+    
+    func attachPersonal() {
+    }
+    
+    
 
-    private let loginBuilder: LoginBuildable
-    private var loginRouter: LoginRouting?
     private let homeBuilder: HomeBuildable
     private var homeRouter: HomeRouting?
+    private let followingBuilder: FollowingBuildable
+    private var followingRouter: FollowingRouting?
+    private let personalBuilder: PersonalBuildable
+    private var personalRouter: PersonalRouting?
     
     init(
         interactor: RootInteractable,
         viewController: RootViewControllable,
-        loginBuilder: LoginBuildable,
-        homeBuilder: HomeBuildable
+        homeBuilder: HomeBuildable,
+        followingBuilder: FollowingBuilder,
+        personalBuilder: PersonalBuilder
     ) {
-        self.loginBuilder = loginBuilder
         self.homeBuilder = homeBuilder
+        self.followingBuilder = followingBuilder
+        self.personalBuilder = personalBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
-    }
-    
-    func attachLogin() {
-        if let homeRouter = homeRouter {
-            detachChild(homeRouter)
-            self.homeRouter = nil
-        }
-        
-        guard loginRouter == nil else { return }
-        let router = loginBuilder.build(withListener: interactor)
-        attachChild(router)
-        loginRouter = router
-        viewController.replaceScreen(viewController: router.viewControllable)
-    }
-    
-    func attachHome() {
-        if let loginRouter = loginRouter {
-            detachChild(loginRouter)
-            self.loginRouter = nil
-        }
-        
-        guard homeRouter == nil else { return }
-        let router = homeBuilder.build(withListener: interactor)
-        attachChild(router)
-        homeRouter = router
-        viewController.replaceScreen(viewController: router.viewControllable)
     }
 }

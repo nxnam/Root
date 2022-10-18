@@ -12,7 +12,8 @@ import RxSwift
 import UIKit
 
 ///@mockable
-protocol RootPresentableListener: class {
+protocol RootPresentableListener: AnyObject {
+    
 }
 
 final class RootViewController: UIViewController, RootPresentable, RootViewControllable {

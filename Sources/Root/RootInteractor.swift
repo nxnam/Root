@@ -11,8 +11,9 @@ import RxSwift
 
 ///@mockable
 protocol RootRouting: ViewableRouting {
-    func attachLogin()
     func attachHome()
+    func attachFollowing()
+    func attachPersonal()
 }
 
 ///@mockable
@@ -21,7 +22,7 @@ protocol RootPresentable: Presentable {
 }
 
 ///@mockable
-protocol RootListener: class {
+protocol RootListener: AnyObject {
 }
 
 final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
@@ -37,18 +38,6 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         
-        router?.attachLogin()
-    }
-
-    // MARK: - LoginListener
-    
-    func dismissLoginFlow() {
         router?.attachHome()
-    }
-    
-    // MARK: - HomeListener
-    
-    func logout() {
-        router?.attachLogin()
     }
 }

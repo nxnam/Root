@@ -13,7 +13,7 @@ import Personal
 
 ///@mockable
 protocol RootDependency: HomeDependency, FollowingDependency, PersonalDependency {
-    var webService: WebServicing { get }
+    // var webService: WebServicing { get }
 }
 
 final class RootComponent: Component<RootDependency> {
@@ -47,15 +47,17 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
             rootViewController: viewController
         )
         
-        let loginBuilder = LoginBuilder(dependency: component.dependency)
         let homeBuilder = HomeBuilder(dependency: component.dependency)
+        let followingBuilder = FollowingBuilder(dependency: component.dependency)
+        let personalBuilder = PersonalBuilder(dependency: component.dependency)
         
         let interactor = RootInteractor(presenter: viewController)
         return RootRouter(
             interactor: interactor,
             viewController: viewController,
-            loginBuilder: loginBuilder,
-            homeBuilder: homeBuilder
+            homeBuilder: homeBuilder,
+            followingBuilder: followingBuilder,
+            personalBuilder: personalBuilder
         )
     }
 }
